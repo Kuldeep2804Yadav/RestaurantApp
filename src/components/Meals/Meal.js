@@ -1,7 +1,8 @@
 import React from "react";
 import MealData from "./MealData";
-import './Meal.css'
+import "./Meal.css";
 import Card from "../UI/Card/Card";
+
 
 function Meal() {
   const DUMMY_MEALS = [

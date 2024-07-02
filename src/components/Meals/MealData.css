@@ -5,6 +5,9 @@
     margin-top: 10px;
     font-size: small;
     border-bottom: 2px dotted gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .price{

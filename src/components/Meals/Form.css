@@ -1,0 +1,15 @@
+
+
+.input input{
+    width: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.input label{
+    font-weight: bolder;
+    margin: 5px;
+}
+.button{
+    margin-left: 25px
+   
+}

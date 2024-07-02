@@ -1,0 +1,20 @@
+
+.cart{
+    height: 50px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgb(76, 25, 1);
+    border-radius: 30px;
+    color:white;
+}
+.count{
+    height: 30px;
+    width: 40px;
+    border-radius: 30px;
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}

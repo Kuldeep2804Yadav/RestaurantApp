@@ -1,0 +1,9 @@
+.meal{
+    height: auto;
+    width: 800px;
+    margin: auto;
+    margin-top: 150px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}

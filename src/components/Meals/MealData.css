@@ -1,0 +1,16 @@
+.meals{
+    width: 700px;
+    list-style-type: none;
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: small;
+    border-bottom: 2px dotted gray;
+}
+
+.price{
+    color: brown;
+    font-weight: bold;
+}
+.name{
+    font-weight: bold;
+}

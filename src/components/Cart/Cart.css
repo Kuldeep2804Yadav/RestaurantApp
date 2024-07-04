@@ -1,14 +1,15 @@
 
 .cart{
     height: 50px;
-    width: 250px;
+    width: 200px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background: rgb(76, 25, 1);
     border-radius: 30px;
     color:white;
 }
+
 .count{
     height: 30px;
     width: 40px;
@@ -16,5 +17,6 @@
     background-color: brown;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+   
 }

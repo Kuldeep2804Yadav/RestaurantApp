@@ -36,6 +36,8 @@ function Meal() {
       {DUMMY_MEALS.map((item) => {
         return (
           <MealData
+            key={item.id}
+            id={item.id}
             name={item.name}
             description={item.description}
             price={item.price}

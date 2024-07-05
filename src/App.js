@@ -3,6 +3,7 @@ import Header from "./components/Layout/Header";
 import Summary from "./components/Layout/Summary";
 import Meal from "./components/Meals/Meal";
 import Dialog from "./components/UI/Card/Dialog";
+import CartProvider from "./components/store/CartProvider";
 function App() {
   const [isopen, setIsOpen] = useState(false);
   const openCartHandler = () => {
@@ -13,12 +14,14 @@ function App() {
     setIsOpen(false);
   };
   return (
-    <div>
+    <CartProvider>
       <Header openCart={openCartHandler} />
       {isopen && <Dialog closeCart={closeCartHandler} />}
       <Summary />
-      <Meal />
-    </div>
+      <main>
+        <Meal />
+      </main>
+    </CartProvider>
   );
 }
 

@@ -17,7 +17,7 @@ const DialogRoot = (props) => {
         <span>35.62</span>
       </div>
       <div className="dialog__Button">
-        <Button title="Close" onClick={props.closeCart}></Button>
+        <Button title="Close" onClick={props.closeCart} className="closeButton"></Button>
         <Button title="Order"></Button>
       </div>
     </Card>

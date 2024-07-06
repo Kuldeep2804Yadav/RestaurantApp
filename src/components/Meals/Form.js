@@ -3,9 +3,8 @@ import Button from "../UI/Button/Button";
 import "./Form.css";
 import CartContext from "../store/cart-context";
 
-function Form() {
-  const [inputValue, setInputValue] = useState(1); 
-  const cartCtx = useContext(CartContext);
+function Form(props) {
+  const [inputValue, setInputValue] = useState(1);
 
   const quantityInputHandler = (event) => {
     setInputValue(event.target.value);
@@ -13,8 +12,8 @@ function Form() {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-    cartCtx.addItem({ amount: parseInt(inputValue) }); 
-    setInputValue(1); 
+
+    setInputValue(1);
   };
 
   return (
@@ -28,7 +27,7 @@ function Form() {
           onChange={quantityInputHandler}
         />
       </div>
-      <Button title="+Add" className="button" />
+      <Button title="+Add" className="button" onClick={props.onAddtoCart} />
     </form>
   );
 }

@@ -3,7 +3,6 @@ import MealData from "./MealData";
 import "./Meal.css";
 import Card from "../UI/Card/Card";
 
-
 function Meal() {
   const DUMMY_MEALS = [
     {
@@ -31,6 +30,7 @@ function Meal() {
       price: 18.99,
     },
   ];
+
   return (
     <Card className="meal">
       {DUMMY_MEALS.map((item) => {

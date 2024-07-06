@@ -6,25 +6,64 @@ function CartProvider(props) {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const addItemToCartHandler = (item) => {
-    
-    setItems((prevItems) => [...prevItems, item]);
-    setTotalAmount((prevTotalAmount) => prevTotalAmount + item.price);
+    setItems((prevItems) => {
+      const existingItemIndex = prevItems.findIndex((i) => i.id === item.id);
+      const existingItem = prevItems[existingItemIndex];
+      let updatedItems;
+
+      if (existingItem) {
+        const updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount + item.amount,
+        };
+        updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = updatedItem;
+      } else {
+        updatedItems = prevItems.concat(item);
+      }
+
+      return updatedItems;
+    });
+
+    setTotalAmount((prevTotalAmount) => prevTotalAmount + item.amount * item.price);
   };
 
   const removeItemFromCartHandler = (id) => {
-   
-    const itemToRemove = items.find((item) => item.id === id);
-    if (!itemToRemove) return;
+    setItems((prevItems) => {
+      const existingItemIndex = prevItems.findIndex((i) => i.id === id);
+      const existingItem = prevItems[existingItemIndex];
+      let updatedItems;
 
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-    setTotalAmount((prevTotalAmount) => prevTotalAmount - itemToRemove.price);
+      if (existingItem.amount === 1) {
+        updatedItems = prevItems.filter((i) => i.id !== id);
+      } else {
+        const updatedItem = { ...existingItem, amount: existingItem.amount - 1 };
+        updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = updatedItem;
+      }
+
+      setTotalAmount((prevTotalAmount) => prevTotalAmount - existingItem.price);
+      return updatedItems;
+    });
   };
+
+  const increaseItemAmount= (id) =>{
+    const item = items.find((item)=>item.id===id)
+    addItemToCartHandler({...item,amount:1})
+  }
+
+  const  decreaseItemAmount= (id) =>{
+    const item = items.find((item)=>item.id===id)
+    removeItemFromCartHandler(id)
+  }
 
   const cartContext = {
     items: items,
     totalAmount: totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    increaseItemAmount:increaseItemAmount,
+    decreaseItemAmount:decreaseItemAmount
   };
 
   return (
